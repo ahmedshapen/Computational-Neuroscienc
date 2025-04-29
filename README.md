@@ -10,7 +10,7 @@ ix_to_word = {i: word for word, i in word_to_ix.items()}
 vocab_size = len(word_to_ix)
 
 input_seq = text[:3]  # ["I", "love", "deep"]
-target = text[3]      # "learning"
+target = text[3]     
 
 input_tensor = torch.tensor([word_to_ix[word] for word in input_seq], dtype=torch.long)
 target_tensor = torch.tensor([word_to_ix[target]], dtype=torch.long)
@@ -27,7 +27,7 @@ class SimpleRNN(nn.Module):
     def forward(self, x):
         x = self.embed(x)
         out, _ = self.rnn(x)
-        out = self.fc(out[-1])  # take last output
+        out = self.fc(out[-1])  
         return out
 
 embed_size = 10
